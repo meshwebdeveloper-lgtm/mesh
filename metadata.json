@@ -1,0 +1,6 @@
+{
+  "name": "Meshweb",
+  "description": "An elite digital studio crafting emotionally resonant, tropical-luxury web experiences with high craftsmanship.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

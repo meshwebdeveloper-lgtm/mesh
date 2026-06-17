@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-charcoal: #5D1C6A;
+  --color-brand-warm-white: #FFF1D3;
+  --color-brand-pink: #FFB090;
+  --color-brand-orange: #CA5995;
+  --color-brand-red: #CA5995;
+  --color-brand-purple: #5D1C6A;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+::selection {
+  background-color: rgba(202, 89, 149, 0.25);
+  color: #5D1C6A;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Hide native cursor as requested by the instructions */
+html, body {
+  cursor: none !important;
+  background-color: #FFF1D3;
+  color: #5D1C6A;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Ensure all clickable items also completely hide the system cursor but let text inputs show their typing indicator */
+a, button, [role="button"], label {
+  cursor: none !important;
+}
+
+input, textarea {
+  cursor: text !important;
+}
+
+select {
+  cursor: pointer !important;
+}
+
+/* Custom gorgeous ambient halo trail for luxury cursor tracking */
+.cursor-trail-glow {
+  position: fixed;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999990;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 176, 144, 0.2) 0%, rgba(93, 28, 106, 0.05) 50%, rgba(93, 28, 106, 0) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* Organic luxury film noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Dynamic palm sway keyframes */
+@keyframes palmSwayLeft {
+  0% { transform: rotate(-2deg) scale(1) translateY(0); }
+  50% { transform: rotate(1.5deg) scale(1.02) translateY(-3px); }
+  100% { transform: rotate(-2deg) scale(1) translateY(0); }
+}
+
+@keyframes palmSwayRight {
+  0% { transform: rotate(1deg) scale(1) translateY(0); }
+  50% { transform: rotate(-1.5deg) scale(1.01) translateY(-2px); }
+  100% { transform: rotate(1deg) scale(1) translateY(0); }
+}
+
+.palm-sway-left {
+  animation: palmSwayLeft 12s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.palm-sway-right {
+  animation: palmSwayRight 14s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Custom shimmering wave effect for skeletons */
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(120deg, #FFF1D3 30%, #FFB090 45%, #FFF1D3 60%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.8s infinite linear;
+}
+
+/* Glass panel glow styles */
+.glass-panel {
+  background: rgba(255, 241, 211, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(93, 28, 106, 0.1);
+  box-shadow: 0 4px 30px rgba(93, 28, 106, 0.02);
+}
+
+.glass-panel-light {
+  background: rgba(255, 241, 211, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(93, 28, 106, 0.05);
+}
+
+/* Hide scrollbar defaults while preserving functional scrolling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF1D3;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFB090;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #CA5995;
+}
